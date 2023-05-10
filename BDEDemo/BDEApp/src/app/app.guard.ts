@@ -1,21 +1,6 @@
-import { Injectable } from '@angular/core';
-import {
-  CanLoad,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  Route,
-  CanActivate
-} from '@angular/router';
-import { Observable } from 'rxjs';
+import { inject } from "@angular/core";
+import { CanMatchFn, Route, UrlSegment } from "@angular/router";
 
-@Injectable({
-  providedIn: 'root'
-})
-export class AppGuard implements CanLoad, CanActivate {
-  canActivate(): boolean | Observable<boolean> | Promise<boolean> {
-    return true;
-  }
-  canLoad(): boolean {
-    return true;
-  }
-}
+export const canLoadAdmin: CanMatchFn = (route: Route, segments: UrlSegment[]) => {
+  return true;
+};

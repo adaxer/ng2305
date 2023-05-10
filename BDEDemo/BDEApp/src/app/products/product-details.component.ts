@@ -8,6 +8,14 @@ import { ProductService } from './product.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
+
+  canDeactivate() {
+    if(!this.hasChanges) {
+      return true;
+    };
+    return window.confirm("Are you sure");
+  }
+
   pageTitle = 'Details: ';
   get hasChanges(): boolean {
     return this.firstRating !== this.product?.starRating;
