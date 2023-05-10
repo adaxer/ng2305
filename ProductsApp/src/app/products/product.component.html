@@ -1,0 +1,8 @@
+<td>
+    <img *ngIf="showImage && product" style="width: 60px;" [src]="product.imageUrl" [title]="product.productName">
+  </td>
+  <td *ngIf="product"> <a [routerLink]="['/products', product.productId]">{{product.productName}}</a></td>
+  <td *ngIf="product">{{product.productCode }}</td>
+  <td *ngIf="product">{{product.releaseDate}}</td>
+  <td *ngIf="product">{{product.price | currency:'USD':'symbol':'1.2-2'}}</td>
+  <td *ngIf="product"><app-star [(rating)]="product.starRating" (ratingChange)="ngOnChanges()"></app-star> </td>
