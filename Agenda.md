@@ -9,3 +9,5 @@ Auth/Auth-System:
 - Daten async abrufen (zweiter Aufruf nach dem ersten)
 
 - Bootstrap Modalbox z.B. für CanDeactivate
+
+- ng client und webapi für https nutzbar machen
