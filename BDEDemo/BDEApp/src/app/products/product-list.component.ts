@@ -7,32 +7,34 @@ import { ProductService } from './product.service';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit, OnChanges {
+export class ProductListComponent implements OnInit {
   constructor(private productService: ProductService) { }
   title = 'BDE-Products';
+  isBusy = false;
   showImage = false;
-  myRating = 5.0;
   products?: Array<IProduct> = undefined; // = [];
 
   ngOnInit(): void {
-    this.productService.getApiProducts().subscribe({
+    this.productService.getProducts().subscribe({
       next: (p) => this.products = p,
       error: (e) => console.log(e),
       complete: () => console.log("Complete")
     });
+
+    this.getData();
+  }
+  async getData() {
+    this.isBusy = true;
+    let p = await this.productService.getProduct(1);
+    console.log(p, p.productId);
+    let q = await this.productService.getProduct(p.productId+1);
+    console.log(q, q.productId);
+    let r = await this.productService.getProduct(q.productId+3);
+    console.log(r, r.productId);
+    this.isBusy = false;
   }
 
   toggleImage(): void {
     this.showImage = !this.showImage;
-  }
-
-  onRatingChanged(newRating: number): void {
-    this.title = `A star rating changed to ${newRating}, but which one?`;
-    // this.products[0].starRating = newRating;
-    console.log(this.products![0]);
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
   }
 }

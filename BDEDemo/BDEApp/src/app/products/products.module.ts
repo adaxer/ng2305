@@ -7,6 +7,8 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { ProductDetailsComponent } from './product-details.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProductComponent } from './product.component';
+import { ProductFormComponent } from './product-form.component';
+import { CloseDialogComponent } from './close-dialog.component';
 
 @NgModule({
   imports: [
@@ -18,7 +20,9 @@ import { ProductComponent } from './product.component';
   declarations: [
     ProductListComponent,
     ProductDetailsComponent,
-    ProductComponent
+    ProductComponent,
+    ProductFormComponent,
+    CloseDialogComponent
   ]
 })
 export class ProductsModule { }

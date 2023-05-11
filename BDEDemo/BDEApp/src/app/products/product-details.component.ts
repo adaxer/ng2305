@@ -1,7 +1,10 @@
 import { IProduct } from './IProduct';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ProductService } from './product.service';
+import { CloseDialogComponent } from './close-dialog.component';
+import { Observable, Subject, of } from 'rxjs';
+declare var window: any;
 
 @Component({
   templateUrl: './product-details.component.html',
@@ -9,27 +12,48 @@ import { ProductService } from './product.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  canDeactivate() {
-    if(!this.hasChanges) {
-      return true;
+  canClose = new Subject<boolean>();
+
+  canDeactivate() : Observable<boolean> {
+
+    if (!this.hasChanges) {
+      return of(true);
     };
-    return window.confirm("Are you sure");
+
+    this.closeDialog.show();
+    return this.canClose;
   }
 
   pageTitle = 'Details: ';
+
   get hasChanges(): boolean {
     return this.firstRating !== this.product?.starRating;
   }
+
   firstRating?: number;
-product?: IProduct;
+  product?: IProduct;
+  closeDialog: any;
+
   constructor(private route: ActivatedRoute,
-              private productService: ProductService) { }
+    private productService: ProductService) {
+  }
 
   ngOnInit() {
     this.route.params.subscribe((p: Params) => {
       const id: number = +p['id'];
-      this.product = this.productService.getProducts().filter(product => product.productId === id)[0];
-      this.firstRating = this.product.starRating;
+      this.loadProduct(id);
     });
+    this.closeDialog = new window.bootstrap.Modal(
+      document.getElementById('myModal')
+    );
+  }
+  async loadProduct(id: number) {
+    this.product = await this.productService.getProduct(id);
+        this.firstRating = this.product.starRating;
+  }
+
+  setCloseOk(){
+    this.closeDialog.hide();
+    this.canClose.next(true);
   }
 }

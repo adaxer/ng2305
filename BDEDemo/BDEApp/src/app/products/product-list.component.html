@@ -3,8 +3,12 @@
     <h1>
       Willkommen to {{ title }}!
     </h1>
-    <app-star [(rating)] = "myRating"></app-star>
-    <div class='table-responsive' >
+      <a class="btn btn-primary" [routerLink]="['/products/new']">Add new </a>
+
+      <div *ngIf="isBusy"><i class="fa fa-spinner" ></i></div>
+      <div *ngIf="!isBusy">All Data here</div>
+
+<div class='table-responsive' >
       <table class='table'>
         <thead>
           <tr>

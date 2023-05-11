@@ -48,5 +48,75 @@
     "price": 35.95,
     "starRating": 4.6,
     "imageUrl": "https://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
+  },
+  {
+    "productId": 11,
+    "productName": "dsaf",
+    "productCode": null,
+    "releaseDate": null,
+    "description": "sfda",
+    "price": 0.0,
+    "starRating": 0.0,
+    "imageUrl": null
+  },
+  {
+    "productId": 12,
+    "productName": "Some",
+    "productCode": "string",
+    "releaseDate": "string",
+    "description": "hello",
+    "price": 10.0,
+    "starRating": 0.0,
+    "imageUrl": "string"
+  },
+  {
+    "productId": 13,
+    "productName": "sdfa",
+    "productCode": null,
+    "releaseDate": null,
+    "description": "sadf",
+    "price": 0.0,
+    "starRating": 0.0,
+    "imageUrl": null
+  },
+  {
+    "productId": 14,
+    "productName": "sdfadsfdaf",
+    "productCode": null,
+    "releaseDate": null,
+    "description": "asdfasfdafs",
+    "price": 100.0,
+    "starRating": 0.0,
+    "imageUrl": null
+  },
+  {
+    "productId": 15,
+    "productName": "sdfadsfdaf",
+    "productCode": null,
+    "releaseDate": null,
+    "description": "asdfasfdafs",
+    "price": 100.0,
+    "starRating": 0.0,
+    "imageUrl": null
+  },
+  {
+    "productId": 16,
+    "productName": "nur1?",
+    "productCode": null,
+    "releaseDate": null,
+    "description": null,
+    "price": 0.0,
+    "starRating": 0.0,
+    "imageUrl": null
+  },
+  {
+    "productId": 17,
+    "productName": "saf",
+    "productCode": null,
+    "releaseDate": null,
+    "description": null,
+    "price": 0.0,
+    "starRating": 0.0,
+    "imageUrl": null
   }
 ]
